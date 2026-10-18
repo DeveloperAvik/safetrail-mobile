@@ -1,0 +1,58 @@
+{
+  "expo": {
+    "name": "SafeTrail",
+    "slug": "safetrail",
+    "scheme": "safetrail",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "edu.lpu.safetrail",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "SafeTrail uses your location during an active trip to notice if you may need help and to share it with your trusted contacts during an emergency.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "Optional: allows SafeTrail to keep monitoring your active trip while the app is in the background.",
+        "UIBackgroundModes": ["location"]
+      }
+    },
+    "android": {
+      "package": "edu.lpu.safetrail",
+      "adaptiveIcon": {
+        "backgroundColor": "#0F766E",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_BACKGROUND_LOCATION",
+        "FOREGROUND_SERVICE",
+        "FOREGROUND_SERVICE_LOCATION",
+        "POST_NOTIFICATIONS"
+      ],
+      "predictiveBackGestureEnabled": false
+    },
+    "web": { "favicon": "./assets/favicon.png", "bundler": "metro" },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "SafeTrail uses your location during an active trip to notice if you may need help.",
+          "locationAlwaysAndWhenInUsePermission": "Optional: lets SafeTrail keep monitoring your active trip in the background.",
+          "isAndroidBackgroundLocationEnabled": true,
+          "isAndroidForegroundServiceEnabled": true
+        }
+      ],
+      ["expo-notifications", { "color": "#0F766E" }],
+      ["expo-splash-screen", { "backgroundColor": "#0F766E", "image": "./assets/icon.png", "imageWidth": 160 }]
+    ],
+    "experiments": { "typedRoutes": true },
+    "extra": {
+      "apiUrl": "http://localhost:4000"
+    }
+  }
+}
